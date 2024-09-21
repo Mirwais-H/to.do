@@ -215,3 +215,117 @@ h1 {
   background-color: #b2dffc;
   cursor: not-allowed;
 }
+
+/* Small screen CSS for mobile and tablet devices */
+@media (max-width: 768px) {
+  .header-content {
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .auth-buttons {
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .tag-buttons {
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .explore-section h2 {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .explore-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    margin-left: 20px;
+    margin-right: 20px;
+    gap: 10px;
+  }
+
+  .explore-item {
+    width: 100%;
+    height: 600px;
+  }
+
+  .post-image {
+    width: 100%;
+    height: 300px;
+    margin: 0;
+  }
+
+  .comment-section {
+    width: 100%;
+  }
+
+  .likeBtn {
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+  }
+
+  #post-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    align-items: center;
+  }
+
+  .search-bar {
+    visibility: hidden;
+  }
+
+  .auth-buttons {
+    margin-top: 1px;
+  }
+
+  .tag-buttons {
+    visibility: collapse;
+  }
+
+  .explore-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 5px;
+  }
+
+  .explore-item {
+    height: 500px;
+    width: 300px;
+  }
+
+  .post-image {
+    height: 400px;
+    width: 250px;
+  }
+
+  .comment-section {
+    width: 100%;
+  }
+
+  .likeBtn {
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+  }
+
+  #post-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
