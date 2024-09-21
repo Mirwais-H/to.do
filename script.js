@@ -1,24 +1,31 @@
-let likeCount = localStorage.getItem('likeCount') ? parseInt(localStorage.getItem('likeCount')) : 0;
-let liked = localStorage.getItem('liked') === 'true';
+const postBtn = document.getElementById('post-btn');
+const commentInput = document.getElementById('comment-input');
+const commentsList = document.getElementById('comments-list');
 
-document.getElementById('likeCount').innerText = likeCount;
+// Function to post a comment
+postBtn.addEventListener('click', () => {
+    const commentText = commentInput.value.trim();
 
-if (liked) {
-    document.getElementById('likeButton').classList.add('liked');
-}
+    if (commentText !== "") {
+        // Create a new div for the comment
+        const commentDiv = document.createElement('div');
+        commentDiv.classList.add('comment');
+        commentDiv.innerText = commentText;
 
-document.getElementById('likeButton').addEventListener('click', function() {
-    liked = !liked;
-    if (liked) {
-        likeCount++;
-        document.getElementById('likeButton').classList.add('liked');
-    } else {
-        likeCount--;
-        document.getElementById('likeButton').classList.remove('liked');
+        // Append the comment to the list
+        commentsList.appendChild(commentDiv);
+
+        // Clear the input field
+        commentInput.value = "";
+        postBtn.disabled = true; // Disable post button again
     }
-    document.getElementById('likeCount').innerText = likeCount;
+});
 
-    // Save to local storage
-    localStorage.setItem('likeCount', likeCount);
-    localStorage.setItem('liked', liked);
+// Enable/Disable post button based on input
+commentInput.addEventListener('input', () => {
+    if (commentInput.value.trim() !== "") {
+        postBtn.disabled = false;
+    } else {
+        postBtn.disabled = true;
+    }
 });
