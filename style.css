@@ -1,371 +1,185 @@
-/* Keep font imports the same */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-/* General CSS */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
+/* General Styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-}
-
-header {
-  background-color: white;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  height: 60px;
-}
-
-.header-content {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #333;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-left: 160px;
-  margin-right: 160px;
-}
-
-.logo {
-  height: 40px;
-}
-
-.search-bar {
-  width: 40%;
-  padding: 8px;
-  border: 1px solid #f0efef;
-  border-radius: 20px;
-  background: #f0efef;
-}
-
-.auth-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.login-btn {
-  background-color: #0095f6;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  height: 32px;
-  width: 70px;
-}
-
-.signup-btn {
-  background-color: #ffffff;
-  color: #0095f6;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  height: 32px;
-  width: 75px;
-}
-
-main {
+  height: 100vh;
+  margin: 0;
   padding: 20px;
 }
 
-h1 {
-  margin-bottom: 20px;
-}
-
-.tag-buttons {
+.todo-container {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px 25px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   display: flex;
-  gap: 10px;
-  margin-bottom: 30px;
-  margin-left: 150px;
-  margin-right: 150px;
-}
-
-.tag-buttons button {
-  background-color: #efefef;
-  border: none;
-  height: 32px;
-  padding: 5px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.explore-section {
-  margin-bottom: 50px;
-}
-
-.explore-section h2 {
-  margin-bottom: 20px;
-  margin-left: 150px;
-  margin-right: 150px;
-}
-
-.explore-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
-  margin-left: 150px;
-  margin-right: 150px;
-}
-
-.explore-item {
-  background-color: rgb(244, 244, 244);
-  width: 500px;
-  border-radius: 10px;
+  flex-direction: column;
+  max-height: 85vh;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-  /* Removed the fixed height */
 }
 
-.post-image {
-  width: 250px;
-  height: 400px;
-  object-fit: cover;
-  margin-left: 100px;
-  margin-right: 100px; 
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #444;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.explore-item p {
-  padding: 15px;
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input, button, select {
+  padding: 12px;
   font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: all 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #6a11cb;
+  box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+}
+
+button {
+  background-color: #6a11cb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #2575fc;
+  transform: translateY(-2px);
+}
+
+/* To-Do List Styles */
+#todo-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 15px;
+  overflow-y: auto;
+  max-height: 350px; /* Adjust the height for better scrolling */
+  border-top: 2px solid #eee;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+li {
+  background: linear-gradient(135deg, #007bff, #00ffd9);
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.remove-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+  background-color: #e60000;
+}
+
+/* Responsive Styles for Mobile */
+@media (max-width: 600px) {
+  .todo-container {
+      max-width: 100%;
+      padding: 15px 20px;
+      max-height: 80vh;
+  }
+
+  h1 {
+      font-size: 24px;
+  }
+
+  #todo-list {
+      max-height: 250px; /* Reduce the max height for better scrolling on smaller screens */
+  }
+
+  input, button, select {
+      font-size: 14px;
+      padding: 10px;
+  }
+
+  .remove-btn {
+      padding: 5px 10px;
+      font-size: 12px;
+  }
+}
+
+.login-container {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px 25px;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-container h2 {
+  margin-bottom: 15px;
+  color: #444;
+}
+
+#login-form input, #login-form button {
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+  width: 100%;
+}
+
+#login-form button {
+  background-color: #6a11cb;
+  color: white;
+  border: none;
+  cursor: pointer;
   font-weight: bold;
 }
 
-/* Styling for Like and Share buttons */
-.action-buttons {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+#login-form button:hover {
+  background-color: #2575fc;
 }
 
-.likeBtn, .shareBtn {
-  background-color: #f0f0f0;
-  border: none;
-  color: #333;
-  font-size: 18px;
-  padding: 10px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.likeBtn:hover, .shareBtn:hover {
-  background-color: #e0e0e0;
-}
-
-.likeBtn i, .shareBtn i {
-  color: #ff0000; /* Red for Like icon */
-}
-
-.shareBtn i {
-  color: #0073e6; /* Blue for Share icon */
-}
-
-.likeBtn:focus, .shareBtn:focus {
-  outline: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.likeBtn.active i {
-  color: #ff0000; /* Active Like button turns red */
-}
-
-.shareBtn.active i {
-  color: #005bb5; /* Active Share button turns blue */
-}
-
-.commentBtn {
-  background-color: #f0f0f0;
-  border: none;
-  color: #333;
-  font-size: 18px;
-  padding: 10px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.commentBtn:hover {
-  background-color: #e0e0e0;
-}
-
-.commentBtn i {
-  color: #008000; /* Green for Comment icon */
-}
-
-.commentBtn:focus {
-  outline: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-
-
-/* Comment Section Styling */
-.comment-section {
-  margin-top: 15px;
-  background-color: #f9f9f9;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 10px;
-  /* Removed the fixed width */
-}
-
-.comment-section h4 {
-  margin-bottom: 10px;
-  font-size: 18px;
-}
-
-.comment {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  padding: 10px;
-  border-radius: 6px;
-  margin-bottom: 10px;
-}
-
-.comment p {
-  margin: 0;
-}
-
-.add-comment {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-#comment-input {
-  width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  resize: vertical; /* Allows the text area to expand */
-  max-height: 100px; /* Limit the height of the text area */
-  font-size: 20px;
-}
-
-.submit-comment {
-  align-self: flex-end;
-  background-color: #0073e6;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.submit-comment:hover {
-  background-color: #005bb5;
-}
-
-/* Styling for New Comments */
-#comments-container .comment {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  padding: 10px;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  word-wrap: break-word; /* Ensures long comments wrap properly */
-}
-
-/* Small screen CSS for mobile and tablet devices */
-@media (max-width: 768px) {
-  .header-content {
-    margin-left: 20px;
-    margin-right: 20px;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .search-bar {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .auth-buttons {
-    justify-content: center;
-    gap: 5px;
-  }
-
-  .tag-buttons {
-    flex-direction: column;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .explore-section h2 {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .explore-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    margin-left: 20px;
-    margin-right: 20px;
-    gap: 10px;
-  }
-
-  .explore-item {
-    width: 100%;
-    height: auto;
-  }
-
-  .post-image {
-    width: 100%;
-    height: 300px;
-    margin: 0;
-  }
-
-  .comment-section {
-    width: 100%;
-  }
-}
-
-/* Further adjustments for smaller screens */
-@media (max-width: 480px) {
-  .header-content {
-    align-items: center;
-  }
-
-  .search-bar {
-    visibility: hidden;
-  }
-
-  .auth-buttons {
-    margin-top: 1px;
-  }
-
-  .tag-buttons {
-    visibility: collapse;
-  }
-
-  .explore-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 5px;
-  }
-
-  .explore-item {
-    height: auto;
-    width: 300px;
-  }
-
-  .post-image {
-    height: 400px;
-    width: 250px;
-  }
-
-  .comment-section {
-    width: 100%;
-  }
-}
